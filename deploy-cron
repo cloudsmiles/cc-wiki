@@ -1,0 +1,4 @@
+# CC Wiki 自动部署定时任务
+# 每 5 分钟检查并部署一次
+
+*/5 * * * * /opt/cc-wiki/deploy.sh >> /var/log/cc-wiki-deploy.log 2>&1
