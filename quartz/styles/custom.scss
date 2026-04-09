@@ -1,3 +1,115 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+// 自定义样式 - 更丰富的主题
+
+// 页面背景装饰
+body {
+  --accent-color: #6366f1;
+  --accent-gradient: linear-gradient(135deg, #6366f1 0%, #ec4899 100%);
+}
+
+// 标题装饰
+h1, h2, h3 {
+  position: relative;
+}
+
+// 标题左侧装饰线
+h1::before {
+  content: "";
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 4px;
+  height: 1.2em;
+  background: var(--accent-gradient);
+  border-radius: 2px;
+}
+
+// 代码块样式增强
+pre {
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.15);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+// 行内代码
+code {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+// 链接样式
+a {
+  text-decoration: none;
+  background: linear-gradient(90deg, #6366f1, #ec4899);
+  background-size: 0% 2px;
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  transition: background-size 0.3s ease;
+
+  &:hover {
+    background-size: 100% 2px;
+  }
+}
+
+// 按钮样式增强
+button {
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+}
+
+// 卡片样式
+article {
+  background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+  border-radius: 16px;
+  padding: 24px;
+}
+
+// 暗色模式适配
+:root[data-theme="dark"] {
+  article {
+    background: linear-gradient(180deg, rgba(30, 30, 46, 0.5) 0%, rgba(30, 30, 46, 0) 100%);
+  }
+
+  pre {
+    box-shadow: 0 4px 20px rgba(129, 140, 248, 0.15);
+    border: 1px solid rgba(129, 140, 248, 0.2);
+  }
+}
+
+// 搜索框样式
+.search-bar {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+
+  &:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+  }
+}
+
+// 页脚
+footer {
+  border-top: 2px solid transparent;
+  border-image: var(--accent-gradient) 1;
+  padding-top: 16px;
+}
+
+// 目录项悬停效果
+.list-item {
+  transition: all 0.2s ease;
+
+  &:hover {
+    padding-left: 8px;
+    border-left: 3px solid #6366f1;
+    background: rgba(99, 102, 241, 0.05);
+  }
+}
